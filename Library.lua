@@ -63,7 +63,15 @@ local Library = {
 	VideoLink = "";
 	TotalTabs = 0;
 	FormatTitleCase = function(str)
-    	return str;
+		str = str:gsub("([Aa][Nn][Tt][Ii])%s+(%S+)", function(anti, word)
+			return anti .. "-" .. word;
+		end);
+
+		local firstAlpha = str:find("%a");
+		if not firstAlpha then return str end;
+		return str:sub(1, firstAlpha - 1)
+			.. string.upper(str:sub(firstAlpha, firstAlpha))
+			.. string.lower(str:sub(firstAlpha + 1))
 	end;
 };
 
