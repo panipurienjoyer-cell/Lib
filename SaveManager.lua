@@ -273,8 +273,6 @@ do
         if self.AutoloadLabel then
             self.AutoloadLabel:SetText('Current autoload config: ' .. name);
         end;
-
-        self.Library:Notify(string.format('Saved and set %q as autoload config', name));
     end;
 
     function SaveManager:BuildConfigSection(tab)
